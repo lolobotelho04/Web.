@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Revenda Herbie</title>
+  </head>
+  <body>
+    <h1>Revenda Herbie</h1>
+    <h2>Adicionar Carro</h2>
+    <form onsubmit="adicionarCarro(); return false;">
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo">
+      <label for="preco">Preço:</label>
+      <input type="number" id="preco">
+      <button type="submit">Adicionar Carro</button>
+    </form>
+    <h2>Promoção</h2>
+    <p>Desconto:</p>
+    <input type="number" id="desconto">
+    <button onclick="simularPromocao()">Simular Promoção</button>
+    <h2>Filtrar por Preço</h2>
+    <p>Preço máximo:</p>
+    <input type="number" id="precoMaximo">
+    <button onclick="filtrarCarros()">Filtrar por Preço</button>
+    <h2>Listar Carros</h2>
+    <button onclick="listarCarros()">Listar Carros</button>
+    <ul id="listaCarros"></ul>
+    <script>
+      var carros = [];
+
+      function adicionarCarro() {
+        var modelo = document.getElementById("modelo").value;
+        var preco = document.getElementById("preco").value;
+        carros.push({ modelo: modelo, preco: preco });
+        alert("O carro " + modelo + " foi adicionado com sucesso!");
+      }
+
+      function simularPromocao() {
+        var desconto = document.getElementById("desconto").value / 100;
+        var carroPromocao = carros[Math.floor(Math.random() * carros.length)];
+        carroPromocao.preco *= (1 - desconto);
+        alert("O " + carroPromocao.modelo + " está com desconto de " + (desconto * 100) + "%!");
+      }
+
+      function filtrarCarros() {
+        var precoMaximo = document.getElementById("precoMaximo").value;
+        var carrosFiltrados = carros.filter(function(carro) {
+          return carro.preco <= precoMaximo;
+        });
+        var lista = document.getElementById("listaCarros");
+        lista.innerHTML = "";
+        carrosFiltrados.forEach(function(carro) {
+          var item = document.createElement("li");
+          item.textContent = carro.modelo + " - R$" + carro.preco;
+          lista.appendChild(item);
+        });
+      }
+
+      function listarCarros() {
+        var lista = document.getElementById("listaCarros");
+        lista.innerHTML = "";
+        carros.forEach(function(carro) {
+          var item = document.createElement("li");
+          item.textContent = carro.modelo + " - R$" + carro.preco;
+          lista.appendChild(item);
+        });
+      }
+    </script>
+  </body>
+</html>

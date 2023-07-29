@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Gerar E-mail Institucional</title>
+  </head>
+  <body>
+    <h1>Gerar E-mail Institucional</h1>
+    <form onsubmit="gerarEmail(); return false;">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome">
+      <label for="sobrenome">Sobrenome:</label>
+      <input type="text" id="sobrenome">
+      <button type="submit">Gerar E-mail</button>
+    </form>
+    <p id="email"></p>
+    <script>
+      function gerarEmail() {
+        var nome = document.getElementById("nome").value;
+        var sobrenome = document.getElementById("sobrenome").value;
+        var email = nome.charAt(0) + sobrenome + "@empresa.com.br";
+        document.getElementById("email").textContent = email;
+      }
+    </script>
+  </body>
+</html>

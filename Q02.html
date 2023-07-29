@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Calculadora de Raiz Quadrada</h2>
+
+<p>Insira um número:</p>
+
+<input id="num" type="number" placeholder="Digite um número">
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+  var num = document.getElementById("num").value;
+  var raiz = Math.sqrt(num);
+  if (Number.isInteger(raiz)) {
+    document.getElementById("resultado").innerHTML = "A raiz quadrada de " + num + " é " + raiz;
+  } else {
+    document.getElementById("resultado").innerHTML = "Não há raiz exata para " + num;
+  }
+}
+</script>
+
+</body>
+</html>

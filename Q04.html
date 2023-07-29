@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Lista de Atendimentos</h2>
+
+<p>Insira o nome do paciente:</p>
+
+<input id="nome" type="text" placeholder="Digite o nome do paciente">
+<button onclick="adicionar()">Adicionar</button>
+<button onclick="exibir()">Exibir</button>
+
+<p id="atendimentos"></p>
+
+<button onclick="urgencia()">Urgência</button>
+<button onclick="atender()">Atender</button>
+
+<script>
+var pacientes = [];
+
+function adicionar() {
+  var nome = document.getElementById("nome").value;
+  pacientes.push(nome);
+  document.getElementById("nome").value = "";
+}
+
+function exibir() {
+  var lista = "";
+  for (var i = 0; i < pacientes.length; i++) {
+    lista += (i+1) + ". " + pacientes[i] + "<br>";
+  }
+  document.getElementById("atendimentos").innerHTML = lista;
+}
+
+function urgencia() {
+  alert("Chamando paciente em estado de urgência!");
+}
+
+function atender() {
+  if (pacientes.length > 0) {
+    var paciente = pacientes.shift();
+    alert("Atendendo paciente " + paciente);
+    exibir();
+  } else {
+    alert("Não há pacientes na lista!");
+  }
+}
+</script>
+
+</body>
+</html>

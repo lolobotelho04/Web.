@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Contas a Pagar</h2>
+
+<p>Insira as contas a pagar:</p>
+
+<input id="conta" type="number" placeholder="Digite o valor da conta">
+<button onclick="adicionar()">Adicionar</button>
+<button onclick="calcular()">Calcular</button>
+
+<p id="contas"></p>
+<p id="resultado"></p>
+
+<script>
+var contas = [];
+var contador = 0;
+var acumulador = 0;
+
+function adicionar() {
+  var conta = document.getElementById("conta").value;
+  contas.push(conta);
+  document.getElementById("conta").value = "";
+}
+
+function calcular() {
+  for (var i = 0; i < contas.length; i++) {
+    acumulador += Number(contas[i]);
+    contador++;
+    document.getElementById("contas").innerHTML += "Conta " + (i+1) + ": R$ " + contas[i] + "<br>";
+  }
+  document.getElementById("resultado").innerHTML = "Número de contas: " + contador + "<br>Total a pagar: R$ " + acumulador;
+}
+</script>
+
+</body>
+</html>

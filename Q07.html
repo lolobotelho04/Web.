@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pizzaria - Controle de Pedidos</title>
+</head>
+<body>
+  <h1>Pizzaria - Controle de Pedidos</h1>
+  <label for="itemType">Tipo de Item:</label>
+  <select id="itemType">
+    <option value="pizzas">Pizzas</option>
+    <option value="bebidas">Bebidas</option>
+  </select>
+
+  <div>
+    <h2>Itens Disponíveis:</h2>
+    <select id="itemList">
+      <!-- Itens serão preenchidos dinamicamente com JavaScript -->
+    </select>
+  </div>
+
+  <label for="pizzaSize">Tamanho da Pizza:</label>
+  <select id="pizzaSize">
+    <option value="pequena">Pequena</option>
+    <option value="media">Média</option>
+    <option value="grande">Grande</option>
+  </select>
+
+  <label for="quantity">Quantidade:</label>
+  <input type="number" id="quantity" min="1" value="1">
+
+  <button onclick="adicionarItem()">Adicionar Item</button>
+
+  <div>
+    <h2>Resumo do Pedido:</h2>
+    <ul id="pedidoResumo">
+      <!-- Itens do pedido serão exibidos dinamicamente com JavaScript -->
+    </ul>
+  </div>
+
+  <script src="Q07.js"></script>
+</body>
+</html>
